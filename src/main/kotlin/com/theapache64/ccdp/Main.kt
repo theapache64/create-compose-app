@@ -53,8 +53,6 @@ fun main(args: Array<String>) {
     targetProjectDir.toFile().deleteRecursively()
     extractedProjectDir.moveTo(targetProjectDir, overwrite = true)
 
-    // Move to proper package first
-
     // Move source
     println("🚚 Preparing source and test files (1/2) ...")
     for (type in arrayOf("main", "test")) {
@@ -67,9 +65,11 @@ fun main(args: Array<String>) {
 
     println("🚚 Verifying file contents (2/2) ...")
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-desktop-template\"" to "rootProject.name = \"$projectName\"",
-        "packageName = \"myapp\"" to "packageName = \"$projectName\"",
-        "com.myapp" to packageName,
+        "rootProject.name = \"compose-desktop-template\"" to "rootProject.name = \"$projectName\"", // settings.gradle.kt
+        "mainClass = \"com.myapp.AppKt\"" to "mainClass = \"$packageName.AppKt\"", // build.gradle
+        "packageName = \"myapp\"" to "packageName = \"$projectName\"", // build.gradle
+        "com.myapp" to packageName, // app kt files
+        "appName = \"My App\"," to "appName = \"$projectName\",", // App.kt
     )
 
     targetProjectDir.toFile().walk().forEach { file ->
