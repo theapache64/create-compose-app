@@ -6,10 +6,11 @@ import com.yg.kotlin.inquirer.core.KInquirer
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
+import java.nio.file.attribute.PosixFilePermission
 import kotlin.io.path.*
 
+private const val IS_DEBUG = true
 private const val TEMPLATE_URL = "https://github.com/theapache64/compose-desktop-template/archive/refs/heads/master.zip"
-private const val IS_DEBUG = false
 private const val EXTRACTED_DIR_NAME = "compose-desktop-template-master"
 private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")
 
@@ -83,6 +84,10 @@ fun main(args: Array<String>) {
             file.writeText(newContent)
         }
     }
+
+    // Give execute permission to ./gradlew
+    val gradlewFile = targetProjectDir / "gradlew"
+    gradlewFile.setPosixFilePermissions(setOf(PosixFilePermission.OTHERS_EXECUTE))
 
     // Acknowledge
     if (!IS_DEBUG) {
