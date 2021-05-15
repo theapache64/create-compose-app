@@ -6,10 +6,8 @@ import java.util.zip.ZipFile
 import kotlin.io.path.*
 
 fun Path.unzip(
-    outputDir: Path = getDefaultOutputDir(this)
+    outputDir: Path = getDefaultOutputDir(this),
 ): Path {
-    // Delete existing first
-    outputDir.toFile().deleteRecursively()
 
     ZipFile(this.toFile()).use { zip ->
         zip.entries().asSequence().forEach { entry ->
@@ -23,6 +21,7 @@ fun Path.unzip(
                         }
                     }
 
+                    outputFile.deleteIfExists()
                     outputFile.createFile()
                     outputFile.outputStream().use { output ->
                         input.copyTo(output)
