@@ -7,7 +7,7 @@
   "main": "index.js",
   "preferGlobal": true,
   "repository": "",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "jdeploy": {
     "jar": "create-compose-desktop-app.main.jar"
   },
