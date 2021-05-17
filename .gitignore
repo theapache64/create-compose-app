@@ -153,3 +153,4 @@ gradle-app.setting
 build
 gpm.json
 tmp
+node_modules
