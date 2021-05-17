@@ -7,12 +7,12 @@
   "main": "index.js",
   "preferGlobal": true,
   "repository": "",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "jdeploy": {
     "jar": "create-compose-desktop-app.main.jar"
   },
   "dependencies": {
-    "shelljs": "^0.7.5"
+    "shelljs": "0.8.4"
   },
   "license": "ISC",
   "name": "create-compose-desktop-app",

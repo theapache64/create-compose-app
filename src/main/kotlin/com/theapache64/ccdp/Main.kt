@@ -7,12 +7,13 @@ import java.io.FileOutputStream
 import java.net.URL
 import kotlin.io.path.*
 
-private const val IS_DEBUG = true
+private const val IS_DEBUG = false
 private const val TEMPLATE_URL = "https://github.com/theapache64/compose-desktop-template/archive/refs/heads/master.zip"
 private const val EXTRACTED_DIR_NAME = "compose-desktop-template-master"
 private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")
 
 fun main(args: Array<String>) {
+    println("💻 Initializing...")
     // Ask project name
     val projectName = if (IS_DEBUG) {
         "Super Project"
@@ -34,7 +35,7 @@ fun main(args: Array<String>) {
     }
 
     // Get source code
-    println("⬇️ Downloading template...")
+    println("⬇️  Downloading template...")
     val outputFile = Path(currentDir) / "compose-desktop-template.zip"
     if (outputFile.notExists()) {
         if (outputFile.parent.notExists()) {
@@ -92,9 +93,9 @@ fun main(args: Array<String>) {
 
     // Acknowledge
     if (!IS_DEBUG) {
-        println("♻️ Removing temp files...")
+        println("♻️  Removing temp files...")
         outputFile.deleteIfExists()
     }
 
-    println("✔️ Finished. [Project Dir: '$targetProjectDir']")
+    println("✔️  Finished. [Project Dir: '$targetProjectDir']")
 }
