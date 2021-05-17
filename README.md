@@ -12,10 +12,6 @@
 
 ![](demo.gif)
 
-### 🥁 Output
-
-![](output.gif)
-
 ## 🛠 Installation
 
 ```shell
@@ -26,24 +22,18 @@
 
 ```shell script
 ~$ create-compose-desktop-app
+Enter project name: 
 ```
 
 ## 📦 What's included?
 
 - See [here](https://github.com/theapache64/compose-desktop-template#whats-included)
 
-
 ## 🤔 How it works?
 
 1. Clone [this template](https://github.com/theapache64/compose-desktop-template)
 1. Replace project name and package name with given input
-1. That's it! 
-
-## 🥼 Run tests
-
-```shell script
-./gradlew test
-```
+1. That's it!
 
 ## ✍️ Author
 
