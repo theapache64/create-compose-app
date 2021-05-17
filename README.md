@@ -1,6 +1,4 @@
-![](cover.jpeg)
-
-# create-compose-desktop-app
+# 💻 create-compose-desktop-app
 
 ![buildStatus](https://img.shields.io/github/workflow/status/theapache64/create-compose-desktop-app/Java%20CI%20with%20Gradle?style=plastic)
 ![latestVersion](https://img.shields.io/github/v/release/theapache64/create-compose-desktop-app)
@@ -8,7 +6,7 @@
 <img alt="Twitter: theapache64" src="https://img.shields.io/twitter/follow/theapache64.svg?style=social" />
 </a>
 
-> A command line tool to init compose desktop project
+>  A tool that gives you a massive head start when building Compose Desktop apps. It saves you from time-consuming setup and configuration
 
 ### ✨ Demo
 
