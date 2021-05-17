@@ -12,6 +12,10 @@
 
 ![](demo.gif)
 
+### 🥁 Output
+
+![](output.gif)
+
 ## 🛠 Installation
 
 ```shell
@@ -23,6 +27,11 @@
 ```shell script
 ~$ create-compose-desktop-app
 ```
+
+## 📦 What's included?
+
+- See [here](https://github.com/theapache64/compose-desktop-template#whats-included)
+
 
 ## 🤔 How it works?
 
