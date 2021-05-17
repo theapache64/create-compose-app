@@ -1,15 +1,14 @@
 package com.theapache64.ccdp
 
 import com.theapache64.ccdp.util.unzip
-import com.yg.kotlin.inquirer.components.promptInput
-import com.yg.kotlin.inquirer.core.KInquirer
+import com.theapache64.ccdp.utils.InputUtils
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 import java.nio.file.attribute.PosixFilePermission
 import kotlin.io.path.*
 
-private const val IS_DEBUG = true
+private const val IS_DEBUG = false
 private const val TEMPLATE_URL = "https://github.com/theapache64/compose-desktop-template/archive/refs/heads/master.zip"
 private const val EXTRACTED_DIR_NAME = "compose-desktop-template-master"
 private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")
@@ -19,14 +18,14 @@ fun main(args: Array<String>) {
     val projectName = if (IS_DEBUG) {
         "Super Project"
     } else {
-        KInquirer.promptInput("Enter project name:")
+        InputUtils.promptString("Enter project name", true)
     }
 
     // Ask package name
     val packageName = if (IS_DEBUG) {
         "com.theapache64.superproject"
     } else {
-        KInquirer.promptInput("Enter package name:")
+        InputUtils.promptString("Enter package name", true)
     }
 
     val currentDir = if (IS_DEBUG) {
