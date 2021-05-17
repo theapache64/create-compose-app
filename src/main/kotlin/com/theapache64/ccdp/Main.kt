@@ -5,10 +5,9 @@ import com.theapache64.ccdp.utils.InputUtils
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
-import java.nio.file.attribute.PosixFilePermission
 import kotlin.io.path.*
 
-private const val IS_DEBUG = false
+private const val IS_DEBUG = true
 private const val TEMPLATE_URL = "https://github.com/theapache64/compose-desktop-template/archive/refs/heads/master.zip"
 private const val EXTRACTED_DIR_NAME = "compose-desktop-template-master"
 private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")
@@ -38,6 +37,9 @@ fun main(args: Array<String>) {
     println("⬇️ Downloading template...")
     val outputFile = Path(currentDir) / "compose-desktop-template.zip"
     if (outputFile.notExists()) {
+        if (outputFile.parent.notExists()) {
+            outputFile.parent.createDirectories()
+        }
         val os = FileOutputStream(outputFile.toFile())
         URL(TEMPLATE_URL).openStream().copyTo(os)
     }
@@ -86,7 +88,7 @@ fun main(args: Array<String>) {
 
     // Give execute permission to ./gradlew
     val gradlewFile = targetProjectDir / "gradlew"
-    gradlewFile.setPosixFilePermissions(setOf(PosixFilePermission.OTHERS_EXECUTE))
+    gradlewFile.toFile().setExecutable(true, false)
 
     // Acknowledge
     if (!IS_DEBUG) {
