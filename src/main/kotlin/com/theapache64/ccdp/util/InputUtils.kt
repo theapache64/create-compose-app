@@ -1,4 +1,4 @@
-package com.theapache64.ccdp.utils
+package com.theapache64.ccdp.util
 
 import java.util.*
 

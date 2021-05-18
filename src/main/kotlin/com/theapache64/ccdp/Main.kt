@@ -1,7 +1,7 @@
 package com.theapache64.ccdp
 
 import com.theapache64.ccdp.util.unzip
-import com.theapache64.ccdp.utils.InputUtils
+import com.theapache64.ccdp.util.InputUtils
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
