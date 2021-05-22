@@ -5,7 +5,7 @@
 <img alt="Twitter: theapache64" src="https://img.shields.io/twitter/follow/theapache64.svg?style=social" />
 </a>
 
->  A tool that gives you a massive head start when building Compose Desktop apps. It saves you from time-consuming setup and configuration
+> A tool that gives you a massive head start when building Compose Desktop apps. It saves you from time-consuming setup and configuration
 
 ### ✨ Demo
 
@@ -68,7 +68,6 @@ Give a ⭐️ if this project helped you!
 <a href="https://www.buymeacoffee.com/theapache64" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="160">
 </a>
-
 
 ## 📝 License
 
