@@ -73,6 +73,7 @@ fun main(args: Array<String>) {
         "packageName = \"myapp\"" to "packageName = \"$projectName\"", // build.gradle
         "com.myapp" to packageName, // app kt files
         "appName = \"My App\"," to "appName = \"$projectName\",", // App.kt
+        "Hello Desktop!" to "Hello $projectName"
     )
 
     targetProjectDir.toFile().walk().forEach { file ->
