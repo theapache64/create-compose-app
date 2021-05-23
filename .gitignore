@@ -154,3 +154,4 @@ build
 gpm.json
 tmp
 node_modules
+jdeploy-bundle
