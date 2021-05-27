@@ -7,10 +7,16 @@ import java.io.FileOutputStream
 import java.net.URL
 import kotlin.io.path.*
 
-private const val IS_DEBUG = false
+private const val IS_DEBUG = true
 private const val TEMPLATE_URL = "https://github.com/theapache64/compose-desktop-template/archive/refs/heads/master.zip"
 private const val EXTRACTED_DIR_NAME = "compose-desktop-template-master"
 private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")
+private const val MAIN_MODULE = "src"
+private val MODULES = arrayOf(
+    MAIN_MODULE, // main module
+    "data", // data module
+)
+private val SRC_DIRS = arrayOf("main", "test")
 
 fun main(args: Array<String>) {
     println("💻 Initializing...")
@@ -58,12 +64,21 @@ fun main(args: Array<String>) {
 
     // Move source
     println("🚚 Preparing source and test files (1/2) ...")
-    for (type in arrayOf("main", "test")) {
-        val baseSrc = Path("src") / type / "kotlin"
-        val myAppSrcPath = targetProjectDir / baseSrc / "com" / "myapp"
-        val targetSrcPath = targetProjectDir / baseSrc / packageName.replace(".", File.separator)
-        targetSrcPath.createDirectories()
-        myAppSrcPath.moveTo(targetSrcPath, overwrite = true)
+    for (module in MODULES) {
+        for (type in SRC_DIRS) {
+            val baseSrc = if (module == MAIN_MODULE) {
+                // main module
+                Path(module) / type / "kotlin"
+            } else {
+                Path(module) / "src" / type / "kotlin"
+            }
+            val myAppSrcPath = targetProjectDir / baseSrc / "com" / "myapp"
+            if (myAppSrcPath.exists()) {
+                val targetSrcPath = targetProjectDir / baseSrc / packageName.replace(".", File.separator)
+                targetSrcPath.createDirectories()
+                myAppSrcPath.moveTo(targetSrcPath, overwrite = true)
+            }
+        }
     }
 
     println("🚚 Verifying file contents (2/2) ...")
