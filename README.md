@@ -26,7 +26,15 @@ Enter project name:
 
 ## 📦 What's included?
 
-- See [here](https://github.com/theapache64/compose-desktop-template#whats-included)
+- Architecture (MVVM) with Android-ish structure (SingleActivity)
+- Dependency Injection (Dagger2)
+- Navigation/Routing (Decompose)
+- Launcher Icons (for all platforms)
+- A separate data module
+- Testing (both unit tests and UI tests)
+- Theme
+- Logging (Arbor)
+- Font (GoogleSans)
 
 
 ## ✍️ Author
