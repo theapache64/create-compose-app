@@ -7,7 +7,7 @@ import java.io.FileOutputStream
 import java.net.URL
 import kotlin.io.path.*
 
-private const val IS_DEBUG = true
+private const val IS_DEBUG = false
 private const val TEMPLATE_URL = "https://github.com/theapache64/compose-desktop-template/archive/refs/heads/master.zip"
 private const val EXTRACTED_DIR_NAME = "compose-desktop-template-master"
 private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")

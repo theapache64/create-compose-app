@@ -155,3 +155,4 @@ gpm.json
 tmp
 node_modules
 jdeploy-bundle
+package-lock.json
