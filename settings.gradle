@@ -1,2 +1,3 @@
 rootProject.name = 'create-compose-desktop-app'
+include 'corvette'
 

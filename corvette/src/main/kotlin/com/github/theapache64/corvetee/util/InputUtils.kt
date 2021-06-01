@@ -1,4 +1,4 @@
-package com.theapache64.ccdp.util
+package com.github.theapache64.corvetee.util
 
 import java.util.*
 
