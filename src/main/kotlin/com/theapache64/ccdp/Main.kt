@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
             "src",
             "data"
         ),
-        isDebug = true
+        isDebug = false
     )
 
     val replaceMap = mapOf(
