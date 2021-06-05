@@ -1,20 +1,26 @@
-# 💻 create-compose-desktop-app
+# 💻 create-compose-app
 
 ![latestVersion](https://img.shields.io/github/v/release/theapache64/create-compose-desktop-app)
 <a href="https://twitter.com/theapache64" target="_blank">
 <img alt="Twitter: theapache64" src="https://img.shields.io/twitter/follow/theapache64.svg?style=social" />
 </a>
 
-> A tool that gives you a massive head start when building Compose Desktop apps. It saves you from time-consuming setup and configuration
+> A tool that gives you a massive head start when building Compose based apps. It saves you from time-consuming setup and configuration
 
 ### ✨ Demo
 
-![](demo.gif)
+#### Desktop
+
+![](desktop_demo.gif)
+
+#### Web
+
+- TODO
 
 ## 🛠 Installation
 
 ```shell
-~$ sudo npm install -g create-compose-desktop-app
+~$ sudo npm install -g create-compose-app
 ```
 
 ## ⌨️ Usage
@@ -25,6 +31,12 @@ Enter project name:
 ```
 
 ## 📦 What's included?
+
+### Web
+
+- A basic counter example
+
+### Desktop
 
 - Architecture (MVVM) with Android-ish structure (SingleActivity)
 - Dependency Injection (Dagger2)

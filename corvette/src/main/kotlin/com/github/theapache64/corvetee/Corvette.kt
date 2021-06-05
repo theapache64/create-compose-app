@@ -21,7 +21,7 @@ class Corvette(
 
     companion object {
         const val MAIN_MODULE = "src"
-        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts")
+        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html")
     }
 
     private val templateUrl = "$githubRepoUrl/archive/refs/heads/$branch.zip"
@@ -65,7 +65,7 @@ class Corvette(
 
         // Get source code
         println("⬇️  Downloading template...")
-        val outputFile = Path(currentDir) / "compose-desktop-template.zip"
+        val outputFile = Path(currentDir) / "${repoName}.zip"
         if (outputFile.notExists()) {
             if (outputFile.parent.notExists()) {
                 outputFile.parent.createDirectories()

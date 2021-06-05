@@ -1,3 +1,3 @@
-rootProject.name = 'create-compose-desktop-app'
+rootProject.name = 'create-compose-app'
 include 'corvette'
 
