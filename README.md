@@ -34,7 +34,6 @@
 Choose platform
 1) Desktop
 2) Web
-3) Android 
 ```
 
 ## 📦 What's included?
@@ -54,10 +53,6 @@ Choose platform
 - Theme
 - Logging (Arbor)
 - Font (GoogleSans)
-
-### Android
-
-- TODO
 
 ## ✍️ Author
 
