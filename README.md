@@ -11,11 +11,11 @@
 
 #### Desktop
 
-![](desktop_demo.gif)
+![](demo_desktop.gif)
 
 #### Web
 
-- TODO
+![](demo_web.gif)
 
 ## 🛠 Installation
 
