@@ -1,28 +1,38 @@
 package com.theapache64.createcomposeapp
 
 import com.github.theapache64.corvetee.Corvette
-import com.yg.kotlin.inquirer.components.promptList
-import com.yg.kotlin.inquirer.core.KInquirer
+import com.github.theapache64.corvetee.util.Color
+import com.github.theapache64.corvetee.util.InputUtils
+import com.github.theapache64.corvetee.util.println
 
 private const val PLATFORM_DESKTOP = "Desktop"
 private const val PLATFORM_WEB = "Web"
-private const val PLATFORM_ANDROID = "Android"
-private const val IS_DEBUG = true
+private const val IS_DEBUG = false
+
+private val platforms = listOf(
+    PLATFORM_DESKTOP,
+    PLATFORM_WEB
+)
 
 fun main(args: Array<String>) {
 
     val platform = if (IS_DEBUG) {
-        PLATFORM_WEB
+        PLATFORM_DESKTOP
     } else {
-        KInquirer.promptList(
-            message = "Choose platform",
-            listOf(
-                PLATFORM_DESKTOP,
-                PLATFORM_WEB,
-                PLATFORM_ANDROID,
-            )
+        println(Color.YELLOW, "Choose platform")
+        for ((index, p) in platforms.withIndex()) {
+            println("${index + 1}) $p")
+        }
+        val selPlatformIndex = InputUtils.getInt(
+            "Choose platform #",
+            1,
+            platforms.size
         )
+
+        platforms[selPlatformIndex - 1]
     }
+
+    println(Color.CYAN, "Platform: $platform")
 
     when (platform) {
         PLATFORM_DESKTOP -> {
@@ -30,9 +40,6 @@ fun main(args: Array<String>) {
         }
         PLATFORM_WEB -> {
             createComposeWebApp()
-        }
-        PLATFORM_ANDROID -> {
-            println("// TODO : Coming soon")
         }
     }
 }
@@ -44,9 +51,19 @@ fun createComposeWebApp() {
     )
 
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-web-template\"" to "rootProject.name = \"${corvette.projectName.replace(" ","_")}\"", // settings.gradle.kt
+        "rootProject.name = \"compose-web-template\"" to "rootProject.name = \"${
+            corvette.projectName.replace(
+                " ",
+                "_"
+            )
+        }\"", // settings.gradle.kt
         "com.theapache64" to corvette.packageName, // app kt files
-        "<script src=\"compose-web-template.js\"></script>" to "<script src=\"${corvette.projectName.replace(" ","_")}.js\"></script>", // index.html
+        "<script src=\"compose-web-template.js\"></script>" to "<script src=\"${
+            corvette.projectName.replace(
+                " ",
+                "_"
+            )
+        }.js\"></script>", // index.html
         "Compose Web Template" to corvette.projectName // index.html
     )
 

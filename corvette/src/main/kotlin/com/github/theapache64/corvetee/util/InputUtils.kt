@@ -13,24 +13,24 @@ object InputUtils {
      * Get a String with given prompt as prompt
      */
     fun promptString(prompt: String, isRequired: Boolean): String {
-        print("$prompt: ")
+        print(Color.GREEN, "$prompt: ")
         val value = scanner.nextLine()
         while (value.trim().isEmpty() && isRequired) {
-            println("Invalid ${prompt.toLowerCase()} `$value`")
+            println(Color.RED, "Invalid ${prompt.lowercase(Locale.getDefault())} `$value`")
             return promptString(prompt, isRequired)
         }
         return value
     }
 
     fun getInt(prompt: String, lowerBound: Int, upperBound: Int, but: Array<Int> = arrayOf()): Int {
-        print("$prompt :")
+        print(Color.GREEN, "$prompt: ")
 
         val sVal = scanner.nextLine()
         try {
             val value = sVal.toInt()
             if (!but.contains(value) && (value < lowerBound || value > upperBound)) {
                 // error
-                println("Input must between $lowerBound and $upperBound")
+                println(Color.RED, "Input must be between $lowerBound and $upperBound")
                 return getInt(prompt, lowerBound, upperBound)
             }
             return value

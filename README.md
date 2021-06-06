@@ -1,6 +1,6 @@
 # 💻 create-compose-app
 
-![latestVersion](https://img.shields.io/github/v/release/theapache64/create-compose-desktop-app)
+![latestVersion](https://img.shields.io/github/v/release/theapache64/create-compose-app)
 <a href="https://twitter.com/theapache64" target="_blank">
 <img alt="Twitter: theapache64" src="https://img.shields.io/twitter/follow/theapache64.svg?style=social" />
 </a>
@@ -17,6 +17,10 @@
 
 ![](demo_web.gif)
 
+#### Mobile
+
+- TODO
+
 ## 🛠 Installation
 
 ```shell
@@ -26,8 +30,11 @@
 ## ⌨️ Usage
 
 ```shell script
-~$ create-compose-desktop-app
-Enter project name: 
+~$ create-compose-app
+Choose platform
+1) Desktop
+2) Web
+3) Android 
 ```
 
 ## 📦 What's included?
@@ -48,6 +55,9 @@ Enter project name:
 - Logging (Arbor)
 - Font (GoogleSans)
 
+### Android
+
+- TODO
 
 ## ✍️ Author
 
