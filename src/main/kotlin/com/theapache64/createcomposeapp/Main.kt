@@ -1,4 +1,4 @@
-package com.theapache64.ccdp
+package com.theapache64.createcomposeapp
 
 import com.github.theapache64.corvetee.Corvette
 import com.yg.kotlin.inquirer.components.promptList

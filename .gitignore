@@ -69,6 +69,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+tmp
+
 # Editor-based Rest Client
 .idea/httpRequests
 
@@ -152,7 +154,3 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,intellij,gradle
 build
 gpm.json
-tmp
-node_modules
-jdeploy-bundle
-package-lock.json
