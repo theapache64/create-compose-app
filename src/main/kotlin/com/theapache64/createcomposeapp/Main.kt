@@ -68,6 +68,7 @@ fun createComposeWebApp() {
     )
 
     corvette.start(replaceMap)
+    println(Color.YELLOW, "Run `./gradlew jsBrowserRun` from project root to run the app in your browser")
 }
 
 private fun createDesktopApp() {
@@ -91,4 +92,5 @@ private fun createDesktopApp() {
     )
 
     corvette.start(replaceMap)
+    println(Color.YELLOW, "Run `./gradlew run` from project root to run the app")
 }
