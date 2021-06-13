@@ -7,11 +7,13 @@ import com.github.theapache64.corvetee.util.println
 
 private const val PLATFORM_DESKTOP = "Desktop"
 private const val PLATFORM_WEB = "Web"
+private const val PLATFORM_CHROME_EXT = "Chrome"
 private const val IS_DEBUG = false
 
 private val platforms = listOf(
     PLATFORM_DESKTOP,
-    PLATFORM_WEB
+    PLATFORM_WEB,
+    PLATFORM_CHROME_EXT,
 )
 
 fun main(args: Array<String>) {
@@ -35,12 +37,9 @@ fun main(args: Array<String>) {
     println(Color.CYAN, "Platform: $platform")
 
     when (platform) {
-        PLATFORM_DESKTOP -> {
-            createDesktopApp()
-        }
-        PLATFORM_WEB -> {
-            createComposeWebApp()
-        }
+        PLATFORM_DESKTOP -> createDesktopApp()
+        PLATFORM_WEB -> createComposeWebApp()
+        PLATFORM_CHROME_EXT -> createChromeExtensionApp()
     }
 }
 
@@ -69,6 +68,34 @@ fun createComposeWebApp() {
 
     corvette.start(replaceMap)
     println(Color.YELLOW, "Run `./gradlew jsBrowserRun` from project root to run the app in your browser")
+}
+
+fun createChromeExtensionApp() {
+    val corvette = Corvette(
+        githubRepoUrl = "https://github.com/theapache64/compose-chrome-extension-template",
+        isDebug = IS_DEBUG
+    )
+
+    val replaceMap = mapOf(
+        "rootProject.name = \"compose-chrome-extension-template\"" to "rootProject.name = \"${
+            corvette.projectName.replace(
+                " ",
+                "_"
+            )
+        }\"", // settings.gradle.kt
+        "com.composeweb.chrome" to corvette.packageName, // app kt files
+        "<script src=\"compose-chrome-extension-template.js\"></script>" to "<script src=\"${
+            corvette.projectName.replace(
+                " ",
+                "_"
+            )
+        }.js\"></script>", // index.html
+        "Compose Chrome Extension Template" to corvette.projectName, // index.html
+        "platform = \"Chrome Extension!\"" to "platform = \"${corvette.projectName}!\"",
+    )
+
+    corvette.start(replaceMap)
+    println(Color.YELLOW, "Run `./gradlew jsBrowserRun` from project root to run the extension directly in your browser")
 }
 
 private fun createDesktopApp() {

@@ -17,6 +17,10 @@
 
 ![](demo_web.gif)
 
+#### Compose Web
+
+![](demo_chrome.gif)
+
 #### Mobile
 
 - TODO
@@ -34,13 +38,10 @@
 Choose platform
 1) Desktop
 2) Web
+3) Chrome extension
 ```
 
 ## 📦 What's included?
-
-### Web
-
-- A basic counter example
 
 ### Desktop
 
@@ -53,6 +54,14 @@ Choose platform
 - Theme
 - Logging (Arbor)
 - Font (GoogleSans)
+
+### Web
+
+- A basic counter example
+
+### Chrome extension
+
+- A simple popup window
 
 ## ✍️ Author
 
