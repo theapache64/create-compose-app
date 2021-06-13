@@ -7,7 +7,7 @@ import com.github.theapache64.corvetee.util.println
 
 private const val PLATFORM_DESKTOP = "Desktop"
 private const val PLATFORM_WEB = "Web"
-private const val PLATFORM_CHROME_EXT = "Chrome"
+private const val PLATFORM_CHROME_EXT = "Chrome extension"
 private const val IS_DEBUG = false
 
 private val platforms = listOf(

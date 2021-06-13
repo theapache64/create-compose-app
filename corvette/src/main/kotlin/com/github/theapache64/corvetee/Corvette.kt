@@ -21,7 +21,7 @@ class Corvette(
 
     companion object {
         const val MAIN_MODULE = "src"
-        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html")
+        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html", "json")
     }
 
     private val templateUrl = "$githubRepoUrl/archive/refs/heads/$branch.zip"
