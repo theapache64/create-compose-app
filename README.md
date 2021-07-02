@@ -9,15 +9,15 @@
 
 ### ✨ Demo
 
-#### Desktop
+#### Desktop ([see template](https://github.com/theapache64/compose-desktop-template))
 
 ![](demo_desktop.gif)
 
-#### Web
+#### Web  ([see template](https://github.com/theapache64/compose-web-template))
 
 ![](demo_web.gif)
 
-#### Compose Web
+#### Chrome extension ([see template](https://github.com/theapache64/compose-chrome-extension-template))
 
 ![](demo_chrome.gif)
 
