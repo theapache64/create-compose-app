@@ -21,7 +21,7 @@ class Corvette(
 
     companion object {
         const val MAIN_MODULE = "src"
-        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html", "json", "xml")
+        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html", "json", "xml", "gradle")
     }
 
     private val templateUrl = "$githubRepoUrl/archive/refs/heads/$branch.zip"
@@ -107,7 +107,6 @@ class Corvette(
                 } else {
                     targetProjectDir / baseSrc / srcPackagePath
                 }
-                println("AppSrcPath: '$myAppSrcPath'")
                 if (myAppSrcPath.exists()) {
                     val targetSrcPath = if (isAndroid) {
                         targetProjectDir / "app" / baseSrc / packageName.replace(".", File.separator)
