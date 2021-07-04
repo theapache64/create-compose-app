@@ -7,23 +7,6 @@
 
 > A tool that gives you a massive head start when building Compose based apps. It saves you from time-consuming setup and configuration
 
-### ✨ Demo
-
-#### Desktop ([see template](https://github.com/theapache64/compose-desktop-template))
-
-![](demo_desktop.gif)
-
-#### Web  ([see template](https://github.com/theapache64/compose-web-template))
-
-![](demo_web.gif)
-
-#### Chrome extension ([see template](https://github.com/theapache64/compose-chrome-extension-template))
-
-![](demo_chrome.gif)
-
-#### Mobile
-
-- TODO
 
 ## 🛠 Installation
 
@@ -36,14 +19,17 @@
 ```shell script
 ~$ create-compose-app
 Choose platform
-1) Desktop
-2) Web
-3) Chrome extension
+1) Android
+2) Desktop
+3) Web
+4) Chrome extension
 ```
 
-## 📦 What's included?
+### ✨ Demo
 
-### Desktop
+#### Desktop ([see template](https://github.com/theapache64/compose-desktop-template))
+
+![](demo_desktop.gif)
 
 - Architecture (MVVM) with Android-ish structure (SingleActivity)
 - Dependency Injection (Dagger2)
@@ -55,13 +41,29 @@ Choose platform
 - Logging (Arbor)
 - Font (GoogleSans)
 
-### Web
+#### Web  ([see template](https://github.com/theapache64/compose-web-template))
 
-- A basic counter example
+![](demo_web.gif)
 
-### Chrome extension
+- A basic web counter example
+
+#### Chrome extension ([see template](https://github.com/theapache64/compose-chrome-extension-template))
+
+![](demo_chrome.gif)
 
 - A simple popup window
+
+#### Android ([see template](https://github.com/theapache64/compose-android-template))
+
+![](demo_android.png)
+
+- MVVM
+- Hilt
+- Compose
+- Navigation
+- Logger
+- Typography (with GoogleSans)
+
 
 ## ✍️ Author
 
