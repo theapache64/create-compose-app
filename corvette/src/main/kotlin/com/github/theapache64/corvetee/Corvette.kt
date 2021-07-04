@@ -12,7 +12,7 @@ class Corvette(
     githubRepoUrl: String, // Eg :https://github.com/theapache64/compose-desktop-template
     private val srcPackagePath: Path = Path("com") / "myapp",
     private val modules: Array<String> = arrayOf(MAIN_MODULE),
-    private val srcDirs: Array<String> = arrayOf("main", "test"),
+    private val srcDirs: Array<String> = arrayOf("main", "test", "androidTest"),
     branch: String = "master",
     private val isDebug: Boolean = false,
     private val debugProjectName: String = "Super Project",
@@ -21,7 +21,7 @@ class Corvette(
 
     companion object {
         const val MAIN_MODULE = "src"
-        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html", "json")
+        private val REPLACEABLE_FILE_EXT = arrayOf("kt", "kts", "html", "json", "xml")
     }
 
     private val templateUrl = "$githubRepoUrl/archive/refs/heads/$branch.zip"
@@ -54,6 +54,7 @@ class Corvette(
 
     fun start(
         replaceMap: Map<String, String>,
+        isAndroid: Boolean = false
     ) {
         println("💻 Initializing...")
 
@@ -89,15 +90,30 @@ class Corvette(
         println("🚚 Preparing source and test files (1/2) ...")
         for (module in modules) {
             for (type in srcDirs) {
-                val baseSrc = if (module == MAIN_MODULE) {
-                    // main module
-                    Path(module) / type / "kotlin"
-                } else {
-                    Path(module) / "src" / type / "kotlin"
+                val baseSrc = when {
+                    isAndroid -> {
+                        Path(module) / type / "java"
+                    }
+                    module == MAIN_MODULE -> {
+                        // main module
+                        Path(module) / type / "kotlin"
+                    }
+                    else -> {
+                        Path(module) / "src" / type / "kotlin"
+                    }
                 }
-                val myAppSrcPath = targetProjectDir / baseSrc / srcPackagePath
+                val myAppSrcPath = if (isAndroid) {
+                    targetProjectDir / "app" / baseSrc / srcPackagePath
+                } else {
+                    targetProjectDir / baseSrc / srcPackagePath
+                }
+                println("AppSrcPath: '$myAppSrcPath'")
                 if (myAppSrcPath.exists()) {
-                    val targetSrcPath = targetProjectDir / baseSrc / packageName.replace(".", File.separator)
+                    val targetSrcPath = if (isAndroid) {
+                        targetProjectDir / "app" / baseSrc / packageName.replace(".", File.separator)
+                    } else {
+                        targetProjectDir / baseSrc / packageName.replace(".", File.separator)
+                    }
                     targetSrcPath.createDirectories()
                     myAppSrcPath.moveTo(targetSrcPath, overwrite = true)
                 }

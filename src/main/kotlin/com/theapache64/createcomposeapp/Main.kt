@@ -4,24 +4,27 @@ import com.github.theapache64.corvetee.Corvette
 import com.github.theapache64.corvetee.util.Color
 import com.github.theapache64.corvetee.util.InputUtils
 import com.github.theapache64.corvetee.util.println
+import kotlin.io.path.Path
+import kotlin.io.path.div
 
-private const val PLATFORM_DESKTOP = "Desktop"
-private const val PLATFORM_WEB = "Web"
-private const val PLATFORM_CHROME_EXT = "Chrome extension"
-private const val IS_DEBUG = false
+private const val IS_DEBUG = true
 
-private val platforms = listOf(
-    PLATFORM_DESKTOP,
-    PLATFORM_WEB,
-    PLATFORM_CHROME_EXT,
-)
+enum class Platform(val title: String) {
+    Desktop("Desktop"),
+    Web("Web"),
+    ChromeExt("Chrome extension"),
+    Android("Android"),
+}
+
 
 fun main(args: Array<String>) {
 
     val platform = if (IS_DEBUG) {
-        PLATFORM_DESKTOP
+        Platform.Android
     } else {
         println(Color.YELLOW, "Choose platform")
+        val platforms = Platform.values()
+
         for ((index, p) in platforms.withIndex()) {
             println("${index + 1}) $p")
         }
@@ -37,10 +40,27 @@ fun main(args: Array<String>) {
     println(Color.CYAN, "Platform: $platform")
 
     when (platform) {
-        PLATFORM_DESKTOP -> createDesktopApp()
-        PLATFORM_WEB -> createComposeWebApp()
-        PLATFORM_CHROME_EXT -> createChromeExtensionApp()
+        Platform.Desktop -> createDesktopApp()
+        Platform.Android -> createAndroidApp()
+        Platform.Web -> createComposeWebApp()
+        Platform.ChromeExt -> createChromeExtensionApp()
     }
+}
+
+fun createAndroidApp() {
+    val corvette = Corvette(
+        githubRepoUrl = "https://github.com/theapache64/compose-android-template",
+        isDebug = IS_DEBUG,
+        srcPackagePath = Path("com") / "theapache64" / "composeandroidtemplate"
+    )
+
+    val replaceMap = mapOf(
+        "rootProject.name = \"compose-android-template\"" to "rootProject.name = \"${corvette.projectName}\"", // settings.build.gradle
+        "com.theapache64.composeandroidtemplate" to corvette.packageName,
+        "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>"
+    )
+
+    corvette.start(replaceMap, isAndroid = true)
 }
 
 fun createComposeWebApp() {
@@ -95,7 +115,10 @@ fun createChromeExtensionApp() {
     )
 
     corvette.start(replaceMap)
-    println(Color.YELLOW, "Run `./gradlew jsBrowserRun` from project root to run the extension directly in your browser")
+    println(
+        Color.YELLOW,
+        "Run `./gradlew jsBrowserRun` from project root to run the extension directly in your browser"
+    )
 }
 
 private fun createDesktopApp() {
