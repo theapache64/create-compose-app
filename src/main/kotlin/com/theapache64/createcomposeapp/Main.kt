@@ -7,7 +7,7 @@ import com.github.theapache64.corvetee.util.println
 import kotlin.io.path.Path
 import kotlin.io.path.div
 
-private const val IS_DEBUG = false
+private const val IS_DEBUG = true
 
 enum class Platform(val title: String) {
     Android("Android"),

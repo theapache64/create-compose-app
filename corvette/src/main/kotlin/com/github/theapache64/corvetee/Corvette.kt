@@ -115,6 +115,10 @@ class Corvette(
                     }
                     targetSrcPath.createDirectories()
                     myAppSrcPath.moveTo(targetSrcPath, overwrite = true)
+                    val srcParent = myAppSrcPath.parent.toFile()
+                    if (srcParent.listFiles()?.isEmpty() == true) {
+                        srcParent.deleteRecursively()
+                    }
                 }
             }
         }
