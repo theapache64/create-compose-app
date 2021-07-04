@@ -27,6 +27,18 @@ Choose platform
 
 ### ✨ Demo
 
+#### Android ([see template](https://github.com/theapache64/compose-android-template))
+
+![](demo_android.png)
+
+- MVVM
+- Hilt
+- Compose
+- Navigation
+- Logger
+- Typography (with GoogleSans)
+
+
 #### Desktop ([see template](https://github.com/theapache64/compose-desktop-template))
 
 ![](demo_desktop.gif)
@@ -52,17 +64,6 @@ Choose platform
 ![](demo_chrome.gif)
 
 - A simple popup window
-
-#### Android ([see template](https://github.com/theapache64/compose-android-template))
-
-![](demo_android.png)
-
-- MVVM
-- Hilt
-- Compose
-- Navigation
-- Logger
-- Typography (with GoogleSans)
 
 
 ## ✍️ Author
