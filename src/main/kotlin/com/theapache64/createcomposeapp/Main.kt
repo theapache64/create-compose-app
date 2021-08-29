@@ -14,19 +14,20 @@ enum class Platform(val title: String) {
     Desktop("Desktop"),
     Web("Web"),
     ChromeExt("Chrome extension"),
+    DesktopGame("Desktop (game)"),
 }
 
 
 fun main(args: Array<String>) {
 
     val platform = if (IS_DEBUG) {
-        Platform.Android
+        Platform.DesktopGame
     } else {
         println(Color.YELLOW, "Choose platform")
         val platforms = Platform.values()
 
         for ((index, p) in platforms.withIndex()) {
-            println("${index + 1}) $p")
+            println("${index + 1}) ${p.title}")
         }
         val selPlatformIndex = InputUtils.getInt(
             "Choose platform #",
@@ -44,6 +45,7 @@ fun main(args: Array<String>) {
         Platform.Android -> createAndroidApp()
         Platform.Web -> createComposeWebApp()
         Platform.ChromeExt -> createChromeExtensionApp()
+        Platform.DesktopGame -> createDesktopGameApp()
     }
 }
 
@@ -129,7 +131,7 @@ private fun createDesktopApp() {
             "src",
             "data"
         ),
-        isDebug = false
+        isDebug = IS_DEBUG
     )
 
     val replaceMap = mapOf(
@@ -143,4 +145,24 @@ private fun createDesktopApp() {
 
     corvette.start(replaceMap)
     println(Color.YELLOW, "Run `./gradlew run` from project root to run the app")
+}
+
+private fun createDesktopGameApp() {
+    val corvette = Corvette(
+        githubRepoUrl = "https://github.com/theapache64/compose-desktop-game-template",
+        isDebug = IS_DEBUG,
+        modules = arrayOf("src"),
+        srcDirs = arrayOf("main"),
+        srcPackagePath = Path("com") / "mygame"
+    )
+
+    val replaceMap = mapOf(
+        "rootProject.name = \"compose-desktop-game-template\"" to "rootProject.name = \"${corvette.projectName}\"", // settings.gradle.kt
+        "mainClass = \"com.mygame.MainKt\"" to "mainClass = \"${corvette.packageName}.MainKt\"", // build.gradle
+        "packageName = \"compose-desktop-game-template\"" to "packageName = \"${corvette.projectName}\"", // build.gradle
+        "com.mygame" to corvette.packageName, // app kt files
+    )
+
+    corvette.start(replaceMap)
+    println(Color.YELLOW, "Run `./gradlew run` from project root to run the game")
 }

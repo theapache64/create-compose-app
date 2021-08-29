@@ -23,6 +23,7 @@ Choose platform
 2) Desktop
 3) Web
 4) Chrome extension
+5) Desktop (game)
 ```
 
 ### ✨ Demo
@@ -65,6 +66,9 @@ Choose platform
 
 - A simple popup window
 
+#### Desktop (game)  ([see template](https://github.com/theapache64/compose-desktop-game-template))
+
+![](demo_desktop_game.gif)
 
 ## ✍️ Author
 
