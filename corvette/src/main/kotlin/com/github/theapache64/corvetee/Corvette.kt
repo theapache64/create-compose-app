@@ -73,6 +73,7 @@ class Corvette(
             }
             val os = FileOutputStream(outputFile.toFile())
             URL(templateUrl).openStream().copyTo(os)
+            os.close()
         }
 
         // Unzip
