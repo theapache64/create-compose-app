@@ -7,7 +7,7 @@
   "main": "index.js",
   "preferGlobal": true,
   "repository": "https://github.com/theapache64/create-compose-app",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "jdeploy": {},
   "dependencies": {
     "shelljs": "0.8.4"
