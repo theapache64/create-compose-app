@@ -10,11 +10,11 @@ import kotlin.io.path.div
 private const val IS_DEBUG = false
 
 enum class Platform(val title: String) {
-    Android("Android"),
-    Desktop("Desktop"),
-    Web("Web"),
-    ChromeExt("Chrome extension"),
-    DesktopGame("Desktop (game)"),
+    Android("🤖 Android"),
+    Desktop("🖥  Desktop"),
+    Web("🌐 Web"),
+    ChromeExt("🔌 Chrome extension"),
+    DesktopGame("🎮 Desktop (game)"),
 }
 
 

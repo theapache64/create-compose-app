@@ -15,8 +15,8 @@ class Corvette(
     private val srcDirs: Array<String> = arrayOf("main", "test", "androidTest"),
     branch: String = "master",
     private val isDebug: Boolean = false,
-    private val debugProjectName: String = "Super Project",
-    private val debugPackageName: String = "com.theapache64.superproject",
+    debugProjectName: String = "Super Project",
+    debugPackageName: String = "com.theapache64.superproject",
 ) {
 
     companion object {
@@ -82,8 +82,9 @@ class Corvette(
         outputFile.unzip(extractDir)
 
         // Rename dir
+        val projectFolderName = projectName.lowercase().replace(" ", "-")
         val extractedProjectDir = extractDir / extractedDirName
-        val targetProjectDir = extractDir / projectName
+        val targetProjectDir = extractDir / projectFolderName
         targetProjectDir.toFile().deleteRecursively()
         extractedProjectDir.moveTo(targetProjectDir, overwrite = true)
 
