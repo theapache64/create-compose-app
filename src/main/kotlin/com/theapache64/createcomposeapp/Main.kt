@@ -57,7 +57,7 @@ fun createAndroidApp() {
     )
 
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-android-template\"" to "rootProject.name = \"${corvette.projectName}\"", // settings.build.gradle
+        "rootProject.name = \"compose-android-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.build.gradle
         "com.theapache64.composeandroidtemplate" to corvette.packageName,
         "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>"
     )
@@ -72,19 +72,9 @@ fun createComposeWebApp() {
     )
 
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-web-template\"" to "rootProject.name = \"${
-            corvette.projectName.replace(
-                " ",
-                "_"
-            )
-        }\"", // settings.gradle.kt
+        "rootProject.name = \"compose-web-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.gradle.kt
         "com.theapache64" to corvette.packageName, // app kt files
-        "<script src=\"compose-web-template.js\"></script>" to "<script src=\"${
-            corvette.projectName.replace(
-                " ",
-                "_"
-            )
-        }.js\"></script>", // index.html
+        "<script src=\"compose-web-template.js\"></script>" to "<script src=\"${corvette.projectDirName}.js\"></script>", // index.html
         "Compose Web Template" to corvette.projectName // index.html
     )
 
@@ -99,19 +89,9 @@ fun createChromeExtensionApp() {
     )
 
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-chrome-extension-template\"" to "rootProject.name = \"${
-            corvette.projectName.replace(
-                " ",
-                "_"
-            )
-        }\"", // settings.gradle.kt
+        "rootProject.name = \"compose-chrome-extension-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.gradle.kt
         "com.composeweb.chrome" to corvette.packageName, // app kt files
-        "<script src=\"compose-chrome-extension-template.js\"></script>" to "<script src=\"${
-            corvette.projectName.replace(
-                " ",
-                "_"
-            )
-        }.js\"></script>", // index.html
+        "<script src=\"compose-chrome-extension-template.js\"></script>" to "<script src=\"${corvette.projectDirName}.js\"></script>", // index.html
         "Compose Chrome Extension Template" to corvette.projectName, // index.html
         "platform = \"Chrome Extension!\"" to "platform = \"${corvette.projectName}!\"",
     )
@@ -135,7 +115,7 @@ private fun createDesktopApp() {
     )
 
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-desktop-template\"" to "rootProject.name = \"${corvette.projectName}\"", // settings.gradle.kt
+        "rootProject.name = \"compose-desktop-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.gradle.kt
         "mainClass = \"com.myapp.AppKt\"" to "mainClass = \"${corvette.packageName}.AppKt\"", // build.gradle
         "packageName = \"myapp\"" to "packageName = \"${corvette.projectName}\"", // build.gradle
         "com.myapp" to corvette.packageName, // app kt files
@@ -157,7 +137,7 @@ private fun createDesktopGameApp() {
     )
 
     val replaceMap = mapOf(
-        "rootProject.name = \"compose-desktop-game-template\"" to "rootProject.name = \"${corvette.projectName}\"", // settings.gradle.kt
+        "rootProject.name = \"compose-desktop-game-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.gradle.kt
         "mainClass = \"com.mygame.MainKt\"" to "mainClass = \"${corvette.packageName}.MainKt\"", // build.gradle
         "packageName = \"compose-desktop-game-template\"" to "packageName = \"${corvette.projectName}\"", // build.gradle
         "com.mygame" to corvette.packageName, // app kt files

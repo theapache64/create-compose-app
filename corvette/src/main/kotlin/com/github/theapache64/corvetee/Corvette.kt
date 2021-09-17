@@ -29,6 +29,7 @@ class Corvette(
     private val extractedDirName: String
     val projectName: String
     val packageName: String
+    val projectDirName: String
 
 
     init {
@@ -42,6 +43,9 @@ class Corvette(
         } else {
             InputUtils.promptString("Enter project name", true)
         }
+
+        // Dir name will be always in kebab case
+        projectDirName = projectName.lowercase().replace(" ", "-")
 
         // Ask package name
         packageName = if (isDebug) {
@@ -82,9 +86,8 @@ class Corvette(
         outputFile.unzip(extractDir)
 
         // Rename dir
-        val projectFolderName = projectName.lowercase().replace(" ", "-")
         val extractedProjectDir = extractDir / extractedDirName
-        val targetProjectDir = extractDir / projectFolderName
+        val targetProjectDir = extractDir / projectDirName
         targetProjectDir.toFile().deleteRecursively()
         extractedProjectDir.moveTo(targetProjectDir, overwrite = true)
 
