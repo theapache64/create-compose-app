@@ -8,6 +8,11 @@ import java.net.URL
 import java.nio.file.Path
 import kotlin.io.path.*
 
+
+/**
+ * Corvette is an engine responsible to download and modify the given template.
+ * The modification done based on the replaceMap.
+ */
 class Corvette(
     githubRepoUrl: String, // Eg :https://github.com/theapache64/compose-desktop-template
     private val srcPackagePath: Path = Path("com") / "myapp",
@@ -15,8 +20,8 @@ class Corvette(
     private val srcDirs: Array<String> = arrayOf("main", "test", "androidTest"),
     branch: String = "master",
     private val isDebug: Boolean = false,
-    private val debugProjectName: String = "Super Project",
-    private val debugPackageName: String = "com.theapache64.superproject",
+    debugProjectName: String = "Super Project",
+    debugPackageName: String = "com.theapache64.superproject",
 ) {
 
     companion object {
