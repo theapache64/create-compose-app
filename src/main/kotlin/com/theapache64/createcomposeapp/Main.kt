@@ -4,6 +4,8 @@ import com.github.theapache64.corvetee.Corvette
 import com.github.theapache64.corvetee.util.Color
 import com.github.theapache64.corvetee.util.InputUtils
 import com.github.theapache64.corvetee.util.println
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.io.path.Path
 import kotlin.io.path.div
 
@@ -61,9 +63,14 @@ fun createAndroidApp() {
         "com.theapache64.composeandroidtemplate" to corvette.packageName,
         "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>",
         "ComposeAndroidTemplate" to corvette.projectName,
+        "versionCode 20211003" to "versionCode ${genVersionCode()}"
     )
 
     corvette.start(replaceMap, isAndroid = true)
+}
+
+fun genVersionCode(): String {
+    return SimpleDateFormat("yyyyMMdd").format(Date())
 }
 
 fun createComposeWebApp() {
