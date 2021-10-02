@@ -59,7 +59,8 @@ fun createAndroidApp() {
     val replaceMap = mapOf(
         "rootProject.name = \"compose-android-template\"" to "rootProject.name = \"${corvette.projectName}\"", // settings.build.gradle
         "com.theapache64.composeandroidtemplate" to corvette.packageName,
-        "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>"
+        "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>",
+        "ComposeAndroidTemplate" to corvette.projectName,
     )
 
     corvette.start(replaceMap, isAndroid = true)
