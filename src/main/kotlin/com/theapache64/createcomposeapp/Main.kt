@@ -62,7 +62,7 @@ fun createAndroidApp() {
         "rootProject.name = \"compose-android-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.build.gradle
         "com.theapache64.composeandroidtemplate" to corvette.packageName,
         "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>",
-        "ComposeAndroidTemplate" to corvette.projectName,
+        "ComposeAndroidTemplate" to corvette.projectName.replace("[^\\w]+".toRegex(),"_"),
         "versionCode 20211003" to "versionCode ${genVersionCode()}"
     )
 
