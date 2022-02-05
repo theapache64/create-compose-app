@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.theapache64'
-version '1.4.2'
+version '2022.2.5'
 
 repositories {
     mavenCentral()
