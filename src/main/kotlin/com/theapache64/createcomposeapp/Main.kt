@@ -15,7 +15,7 @@ enum class Platform(val title: String) {
     Android("🤖 Android"),
     Desktop("🖥  Desktop"),
     Web("🌐 Web"),
-    Wasm("🌐 Wasm 2"),
+    Wasm("🌐 Wasm"),
     ChromeExt("🔌 Chrome extension"),
     DesktopGame("🎮 Desktop (game)"),
 }
