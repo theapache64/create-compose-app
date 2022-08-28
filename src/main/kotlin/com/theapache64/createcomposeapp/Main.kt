@@ -10,6 +10,7 @@ import kotlin.io.path.Path
 import kotlin.io.path.div
 
 private const val IS_DEBUG = false
+private const val VERSION = "2022.8.29"
 
 enum class Platform(val title: String) {
     Android("🤖 Android"),
@@ -22,7 +23,7 @@ enum class Platform(val title: String) {
 
 
 fun main(args: Array<String>) {
-
+    println(Color.GREEN, "Initializing create-compose-app (v$VERSION)")
     val platform = if (IS_DEBUG) {
         Platform.DesktopGame
     } else {
@@ -64,7 +65,7 @@ fun createAndroidApp() {
         "rootProject.name = \"compose-android-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.build.gradle
         "com.theapache64.composeandroidtemplate" to corvette.packageName,
         "<string name=\"app_name\">compose-android-template</string>" to "<string name=\"app_name\">${corvette.projectName}</string>",
-        "ComposeAndroidTemplate" to corvette.projectName.replace("[^\\w]+".toRegex(),"_"),
+        "ComposeAndroidTemplate" to corvette.projectName.replace("[^\\w]+".toRegex(), "_"),
         "versionCode 20211003" to "versionCode ${genVersionCode()}"
     )
 
