@@ -15,6 +15,7 @@ enum class Platform(val title: String) {
     Android("🤖 Android"),
     Desktop("🖥  Desktop"),
     Web("🌐 Web"),
+    Wasm("🌐 Wasm 2"),
     ChromeExt("🔌 Chrome extension"),
     DesktopGame("🎮 Desktop (game)"),
 }
@@ -46,6 +47,7 @@ fun main(args: Array<String>) {
         Platform.Desktop -> createDesktopApp()
         Platform.Android -> createAndroidApp()
         Platform.Web -> createComposeWebApp()
+        Platform.Wasm -> createComposeWasmApp()
         Platform.ChromeExt -> createChromeExtensionApp()
         Platform.DesktopGame -> createDesktopGameApp()
     }
@@ -84,6 +86,24 @@ fun createComposeWebApp() {
         "com.theapache64" to corvette.packageName, // app kt files
         "<script src=\"compose-web-template.js\"></script>" to "<script src=\"${corvette.projectDirName}.js\"></script>", // index.html
         "Compose Web Template" to corvette.projectName // index.html
+    )
+
+    corvette.start(replaceMap)
+    println(Color.YELLOW, "Run `./gradlew jsBrowserRun` from project root to run the app in your browser")
+}
+
+fun createComposeWasmApp() {
+    val corvette = Corvette(
+        githubRepoUrl = "https://github.com/theapache64/compose-wasm-template",
+        isDebug = IS_DEBUG
+    )
+
+    val replaceMap = mapOf(
+        "rootProject.name = \"compose-wasm-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.gradle.kt
+        "com.theapache64" to corvette.packageName, // app kt files
+        "<script src=\"compose-wasm-template.js\"> </script>" to "<script src=\"${corvette.projectDirName}.js\"></script>", // index.html
+        "Compose Wasm Template" to corvette.projectName, // index.html
+        "compose wasm demo" to corvette.projectName // index.html
     )
 
     corvette.start(replaceMap)
