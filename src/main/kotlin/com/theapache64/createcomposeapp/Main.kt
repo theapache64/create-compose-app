@@ -10,7 +10,7 @@ import kotlin.io.path.Path
 import kotlin.io.path.div
 
 private const val IS_DEBUG = false
-private const val VERSION = "2022.8.29"
+private const val VERSION = "2022.12.19"
 
 enum class Platform(val title: String) {
     Android("🤖 Android"),
@@ -19,6 +19,7 @@ enum class Platform(val title: String) {
     Wasm("🌐 Wasm"),
     ChromeExt("🔌 Chrome extension"),
     DesktopGame("🎮 Desktop (game)"),
+    Terminal("⌨️ Terminal")
 }
 
 
@@ -51,9 +52,9 @@ fun main(args: Array<String>) {
         Platform.Wasm -> createComposeWasmApp()
         Platform.ChromeExt -> createChromeExtensionApp()
         Platform.DesktopGame -> createDesktopGameApp()
+        Platform.Terminal -> createTerminalApp()
     }
 }
-
 fun createAndroidApp() {
     val corvette = Corvette(
         githubRepoUrl = "https://github.com/theapache64/compose-android-template",
@@ -174,4 +175,23 @@ private fun createDesktopGameApp() {
 
     corvette.start(replaceMap)
     println(Color.YELLOW, "Run `./gradlew run` from project root to run the game")
+}
+
+private fun createTerminalApp() {
+    val corvette = Corvette(
+        githubRepoUrl = "https://github.com/theapache64/compose-terminal-template",
+        isDebug = IS_DEBUG,
+        modules = arrayOf("src"),
+        srcDirs = arrayOf("main"),
+        srcPackagePath = Path("com") / "myterminal"
+    )
+
+    val replaceMap = mapOf(
+        "rootProject.name = \"compose-terminal-template\"" to "rootProject.name = \"${corvette.projectDirName}\"", // settings.gradle.kt
+        "mainClass.set(\"com.myterminal.app.AppKt\")" to "mainClass.set(\"${corvette.packageName}.app.AppKt\")",
+        "com.myterminal" to corvette.packageName, // app kt files
+    )
+
+    corvette.start(replaceMap)
+    println(Color.YELLOW, "Run `./gradlew run` from project root to run the app")
 }
