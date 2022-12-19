@@ -8,9 +8,16 @@
   "preferGlobal": true,
   "repository": "https://github.com/theapache64/create-compose-app",
   "version": "2022.12.19",
-  "jdeploy": {},
+  "jdeploy": {
+    "jdk": false,
+    "javaVersion": "11",
+    "jar": "out/artifacts/create_compose_app_jar/create-compose-app.jar",
+    "javafx": false,
+    "title": "create-compose-app"
+  },
   "dependencies": {
-    "shelljs": "0.8.4"
+    "njre": "^0.2.0",
+    "shelljs": "^0.8.4"
   },
   "license": "ISC",
   "name": "create-compose-app",

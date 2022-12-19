@@ -19,7 +19,7 @@ enum class Platform(val title: String) {
     Wasm("🌐 Wasm"),
     ChromeExt("🔌 Chrome extension"),
     DesktopGame("🎮 Desktop (game)"),
-    Terminal("⌨️ Terminal")
+    Terminal("⌨️  Terminal")
 }
 
 
