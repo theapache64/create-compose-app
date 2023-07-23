@@ -130,6 +130,20 @@ class Corvette(
                         srcParent.deleteRecursively()
                     }
                 }
+
+                // Moving benchmark directory for android
+                if(isAndroid){
+                    val myBenchmarkSrcPath = targetProjectDir / "benchmark" / baseSrc / srcPackagePath
+                    if (myBenchmarkSrcPath.exists()) {
+                        val targetSrcPath =  targetProjectDir / "benchmark" / baseSrc / packageName.replace(".", File.separator)
+                        targetSrcPath.createDirectories()
+                        myBenchmarkSrcPath.moveTo(targetSrcPath, overwrite = true)
+                        val srcParent = myBenchmarkSrcPath.parent.toFile()
+                        if (srcParent.listFiles()?.isEmpty() == true) {
+                            srcParent.deleteRecursively()
+                        }
+                    }
+                }
             }
         }
 

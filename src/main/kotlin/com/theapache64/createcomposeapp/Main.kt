@@ -26,7 +26,7 @@ enum class Platform(val title: String) {
 fun main(args: Array<String>) {
     println(Color.GREEN, "Initializing create-compose-app (v$VERSION)")
     val platform = if (IS_DEBUG) {
-        Platform.DesktopGame
+        Platform.Android
     } else {
         println(Color.YELLOW, "Choose platform")
         val platforms = Platform.values()
